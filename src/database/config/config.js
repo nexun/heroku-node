@@ -22,5 +22,6 @@ module.exports = {
     database: DB_NAME,
     host: DB_HOST,
     dialect: "postgres",
+    ssl: true
   },
 };
