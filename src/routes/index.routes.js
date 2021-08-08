@@ -12,6 +12,9 @@ const loggedInRoutes = () => {
 const authroutes = () => {
   // aca se registran todas las rutas de la parte exterior
   const router = Router();
+  router.get("/", function (req, res) {
+    res.render("index");
+  });
   router.use("/auth", authRoutes);
   return router;
 };
