@@ -2,17 +2,17 @@ const express = require("express");
 var cors = require("cors");
 const routerConfig = require("./routes/index.routes");
 require("dotenv").config();
-var path = require ('path');
+var path = require("path");
 
 const PORT = process.env.PORT || 5000;
 
 const configApi = (app) => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
-/*   app.set("view engine", "ejs");
-  app.set('views', path.join(__dirname + "/views"));
+  app.set("view engine", "ejs");
+  app.set("views", path.join(__dirname + "/views"));
   app.use(express.static(path.join(__dirname + "/public")));
-  app.use(cors()); */
+  app.use(cors());
   return;
 };
 
@@ -42,7 +42,7 @@ const init = () => {
   const app = express();
   configApi(app);
   configRouter(app);
-  // configureApiHeaders(app);
+  configureApiHeaders(app);
   app.listen(PORT);
   console.log("Su aplicacion se esta ejecutando en el puerto: " + PORT);
 };
