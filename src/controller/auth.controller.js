@@ -32,4 +32,22 @@ const login = async (req, res) => {
   });
 };
 
-module.exports = { login };
+const register = async (req, res) => {
+  const { username, password, email, firstName, lastName } = req.body;
+  if (!username || !password) {
+    return res.status(401).send({
+      message: "Datos incompletos, asegurese de enviar el username y password",
+    });
+  }
+  const data = {
+    username: username,
+    password: bcrypt.hashSync(password, 8),
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+  };
+  const inserted = await model.User.create(data);
+  return res.status(201).json("Usuario registrado correctamente");
+};
+
+module.exports = { login, register };
