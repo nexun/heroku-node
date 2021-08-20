@@ -4,7 +4,7 @@ const routerConfig = require("./routes/index.routes");
 require("dotenv").config();
 var path = require("path");
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 const configApi = (app) => {
   app.use(express.json());
